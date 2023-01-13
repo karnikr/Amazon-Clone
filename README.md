@@ -1,3 +1,24 @@
+# This is an AMAZON-CLONE Project
+
+## Languages used:
+- JavaScript
+- HTML
+- CSS
+- React
+
+## APIs Used:
+- Firebase
+- Stripe
+- React-Router-Dom
+- Material UI
+- Axios
+
+This Project was created using JavaScript, HTML, CSS and React. It aso used Firebase for hosting the application and a real time database of the basket items. I used the Stripe Payment functionailty to process real-time payment methods which can be used for both small and large scale business operations.
+
+The link to this porject as hosted is: https://challenge-628da.web.app
+
+This Project is a work in progress and I am constantly making improvements over time.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
