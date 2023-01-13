@@ -2,7 +2,7 @@ import React from 'react';
 import "./CheckoutProduct.css";
 import { useStateValue } from './StateProvider';
 
-function CheckoutProduct({id,image,title,price,rating}) { //{} --> props passed through
+function CheckoutProduct({id,image,title,price,rating, hideButton}) { //{} --> props passed through
   const [{basket},dispatch] = useStateValue();
   const removeFromBasket = () => {
     //remove the item from the basket
@@ -21,7 +21,9 @@ function CheckoutProduct({id,image,title,price,rating}) { //{} --> props passed 
             <div className='checkoutProduct__rating'>
                 {Array(rating).fill().map(() => (<p>⭐️</p>))}
             </div>
-            <button onClick={removeFromBasket}>Remove from Basket</button>
+            {!hideButton && (
+              <button onClick={removeFromBasket}>Remove from Basket</button>
+            )}
         </div>
     </div>
   )

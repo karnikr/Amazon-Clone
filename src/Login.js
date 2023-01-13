@@ -1,25 +1,41 @@
 import React from 'react';
 import "./Login.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { auth } from './firebase';
 
 function Login() {
+  const navigate = useNavigate(); // allows us to programmatically change the URL
+  const [email,setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const signIn = e => {
         e.preventDefault(); //This prevents the page to refresh. we do not want refresh in react
 
+        auth   
+            .signInWithEmailAndPassword(email,password)
+            .then(auth => {
+                navigate('/')
+            })
+            .catch(error => alert(error.message))
         //Fancy Firebase code
 
   }
 
   const register = e =>{
     e.preventDefault();
-
+    auth
+        .createUserWithEmailAndPassword(email,password)
+        .then((auth) => {
+            //successfully created a new user with email and password
+            console.log(auth);
+            if(auth){
+                navigate('/')
+            }
+        })
+        .catch(error => alert(error.message))
     //Fancy Firebase register code
   }
-  
-  const [email,setEmail] = useState('');
-  const [password, setPassword] = useState('');
   return (
     <div className='login'>
         <Link to="/">
